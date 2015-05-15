@@ -1,7 +1,6 @@
 package main
 
 import (
-	"fmt"
 	"github.com/kaneshin/giita/giita/client"
 	"github.com/kaneshin/giita/giita/request"
 	"io/ioutil"
