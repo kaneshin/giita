@@ -10,9 +10,23 @@ _~/.giita_
 
 ```
 {
-  "team": "your team name",
-  "token": "your access token"
+  "team": "YOUR TEAM NAME",
+  "token": "YOUR ACCESS TOKEN"
 }
+```
+
+## Usage
+
+### post
+
+```
+$ giita post sample.md -tags=foo,bar -title="This is title"
+```
+
+### team
+
+```
+$ giita team
 ```
 
 ## License

@@ -29,8 +29,12 @@ func init() {
 	if err != nil {
 		panic(err)
 	}
-	team = data["team"].(string)
-	token = data["token"].(string)
+	if val, ok := data["team"].(string); ok {
+		team = val
+	}
+	if val, ok := data["token"].(string); ok {
+		token = val
+	}
 }
 
 var (
