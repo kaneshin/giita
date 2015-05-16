@@ -29,6 +29,12 @@ $ giita post sample.md -tags=foo,bar -title="This is title"
 $ giita team
 ```
 
+### user
+
+```
+$ giita user
+```
+
 ## License
 
 [The MIT License (MIT)](http://kaneshin.mit-license.org/)
