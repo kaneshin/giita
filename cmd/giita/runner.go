@@ -21,6 +21,7 @@ func newRunner() runner {
 	runner := runner{
 		commands: []command{
 			newPostCommand(),
+			newTeamCommand(),
 		},
 	}
 	return runner

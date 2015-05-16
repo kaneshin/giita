@@ -1,7 +1,6 @@
 package client
 
 import (
-	"fmt"
 	"github.com/kaneshin/giita/giita/request"
 	"io/ioutil"
 	"net/http"
@@ -17,23 +16,18 @@ func NewClient(token string) Client {
 	return c
 }
 
-func (c *Client) Dispatch(requester request.Requester) error {
+func (c *Client) Dispatch(requester request.Requester) ([]byte, error) {
 	req, err := requester.ToRequest()
 	req.Header.Add("Authorization", "Bearer "+c.Token)
 	req.Header.Add("Content-Type", "application/json")
 	if err != nil {
-		return err
+		return nil, err
 	}
 	client := &http.Client{}
 	res, err := client.Do(req)
 	if err != nil {
-		return err
+		return nil, err
 	}
-	body, err := ioutil.ReadAll(res.Body)
-	res.Body.Close()
-	if err != nil {
-		return err
-	}
-	fmt.Println(body)
-	return nil
+	defer res.Body.Close()
+	return ioutil.ReadAll(res.Body)
 }

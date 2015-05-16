@@ -8,10 +8,10 @@ func usage() {
 	fmt.Printf(`%s
 
   Usage:
-  `, programName)
+`, programName)
 
 	for _, cmd := range newRunner().commands {
-		fmt.Printf("  %s\n", cmd.usage)
+		fmt.Printf("    %s\n", cmd.usage)
 	}
 
 	fmt.Printf(`

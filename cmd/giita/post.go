@@ -1,6 +1,7 @@
 package main
 
 import (
+	"fmt"
 	"github.com/kaneshin/giita/giita/client"
 	"github.com/kaneshin/giita/giita/request"
 	"io/ioutil"
@@ -51,5 +52,10 @@ func postCommand(cmd *command, args []string) error {
 		req.Data["tags"] = tags
 	}
 	cli := client.NewClient(token)
-	return cli.Dispatch(req)
+	body, err := cli.Dispatch(req)
+	if err != nil {
+		return err
+	}
+	fmt.Println(string(body))
+	return nil
 }
