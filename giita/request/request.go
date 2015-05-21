@@ -6,6 +6,12 @@ import (
 	"fmt"
 	"net/http"
 	"net/url"
+	"path"
+)
+
+const (
+	qiitaHost  = "qiita.com"
+	apiVersion = "v2"
 )
 
 type Requester interface {
@@ -18,16 +24,16 @@ type Request struct {
 	Data   map[string]interface{}
 }
 
-func NewRequest(method, team, path string) Request {
+func NewRequest(method, team, p string) Request {
 	req := Request{}
 	req.Method = method
 	req.URL.Scheme = "https"
 	if len(team) > 0 {
-		req.URL.Host = fmt.Sprintf("%s.qiita.com", team)
+		req.URL.Host = fmt.Sprintf("%s.%s", team, qiitaHost)
 	} else {
-		req.URL.Host = "qiita.com"
+		req.URL.Host = qiitaHost
 	}
-	req.URL.Path = path
+	req.URL.Path = path.Join(path.Join("/api", apiVersion), p)
 	req.Data = map[string]interface{}{}
 	return req
 }

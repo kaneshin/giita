@@ -6,7 +6,7 @@ type PostItemRequest struct {
 
 func NewPostItemRequest(team, title, body string) PostItemRequest {
 	req := PostItemRequest{}
-	req.Request = NewRequest("POST", team, "/api/v2/items")
+	req.Request = NewRequest("POST", team, "/items")
 	req.Data = map[string]interface{}{
 		"body":      body,
 		"coediting": false,

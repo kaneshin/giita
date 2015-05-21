@@ -6,7 +6,7 @@ type GetTeamRequest struct {
 
 func NewGetTeamRequest() GetTeamRequest {
 	req := GetTeamRequest{}
-	req.Request = NewRequest("GET", "", "/api/v2/teams")
+	req.Request = NewRequest("GET", "", "/teams")
 	req.Data = map[string]interface{}{}
 	return req
 }
