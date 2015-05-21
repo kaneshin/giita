@@ -23,6 +23,7 @@ func newRunner() runner {
 			newPostCommand(),
 			newTeamCommand(),
 			newUserCommand(),
+			newItemCommand(),
 		},
 	}
 	return runner

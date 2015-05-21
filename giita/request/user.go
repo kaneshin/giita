@@ -5,12 +5,12 @@ import (
 	"strconv"
 )
 
-type GetUserRequest struct {
+type UserRequest struct {
 	Request
 }
 
-func NewGetUserRequestWithPageAndLimit(team string, page, limit int) GetUserRequest {
-	req := GetUserRequest{}
+func NewUserRequestWithPageAndLimit(team string, page, limit int) UserRequest {
+	req := UserRequest{}
 	req.Request = NewRequest("GET", team, "/users")
 	req.Data = map[string]interface{}{
 		"page":     strconv.Itoa(page),
@@ -19,8 +19,8 @@ func NewGetUserRequestWithPageAndLimit(team string, page, limit int) GetUserRequ
 	return req
 }
 
-func NewGetUserRequestWithID(team, id string) GetUserRequest {
-	req := GetUserRequest{}
+func NewUserRequestWithID(team, id string) UserRequest {
+	req := UserRequest{}
 	req.Request = NewRequest("GET", team, path.Join("/users", id))
 	req.Data = map[string]interface{}{}
 	return req

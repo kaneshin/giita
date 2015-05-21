@@ -30,7 +30,7 @@ func userCommand(cmd *command, args []string) error {
 }
 
 func getUsers(page, limit int) error {
-	req := request.NewGetUserRequestWithPageAndLimit(team, page, limit)
+	req := request.NewUserRequestWithPageAndLimit(team, page, limit)
 	cli := client.NewClient(token)
 	body, err := cli.Dispatch(req)
 	if err != nil {
@@ -41,7 +41,7 @@ func getUsers(page, limit int) error {
 }
 
 func getUserByID(id string) error {
-	req := request.NewGetUserRequestWithID(team, id)
+	req := request.NewUserRequestWithID(team, id)
 	cli := client.NewClient(token)
 	body, err := cli.Dispatch(req)
 	if err != nil {
