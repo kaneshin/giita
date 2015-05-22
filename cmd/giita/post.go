@@ -40,7 +40,7 @@ func postCommand(cmd *command, args []string) error {
 			}
 		}
 		if strings.HasPrefix(arg, "-title=") {
-			title = strings.TrimLeft(arg, "-title=")
+			title = strings.TrimPrefix(arg, "-title=")
 		}
 	}
 	if len(title) == 0 {
