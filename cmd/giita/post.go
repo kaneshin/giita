@@ -30,8 +30,7 @@ func postCommand(cmd *command, args []string) error {
 	var tags []map[string]interface{}
 	for _, arg := range args[1:] {
 		if strings.HasPrefix(arg, "-tags=") {
-			tag := strings.TrimLeft(arg, "-tags")
-			tag = strings.TrimLeft(tag, "=")
+			tag := strings.TrimPrefix(arg, "-tags=")
 			for _, el := range strings.Split(tag, ",") {
 				t := map[string]interface{}{
 					"name":     el,
